@@ -1,0 +1,20 @@
+C:\Users\JJ\source\repos\Hitbox Editor\bin\Debug\netcoreapp3.1\Hitbox Editor.exe
+C:\Users\JJ\source\repos\Hitbox Editor\bin\Debug\netcoreapp3.1\Hitbox Editor.deps.json
+C:\Users\JJ\source\repos\Hitbox Editor\bin\Debug\netcoreapp3.1\Hitbox Editor.runtimeconfig.json
+C:\Users\JJ\source\repos\Hitbox Editor\bin\Debug\netcoreapp3.1\Hitbox Editor.runtimeconfig.dev.json
+C:\Users\JJ\source\repos\Hitbox Editor\bin\Debug\netcoreapp3.1\Hitbox Editor.dll
+C:\Users\JJ\source\repos\Hitbox Editor\bin\Debug\netcoreapp3.1\Hitbox Editor.pdb
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.csproj.AssemblyReference.cache
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor_MarkupCompile.cache
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor_MarkupCompile.lref
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.g.resources
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.AssemblyInfoInputs.cache
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.AssemblyInfo.cs
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.csproj.CoreCompileInputs.cache
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.dll
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.pdb
+C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.genruntimeconfig.cache
