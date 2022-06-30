@@ -1,0 +1,112 @@
+﻿<Window x:Class="Hitbox_Editor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Hitbox_Editor"
+        mc:Ignorable="d"
+        Title="Hitbox Editor" Height="450" Width="800" Background="DarkGray">
+    <Grid>
+            <ComboBox x:Name="fighter_list" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="120" SelectedItem="Fighter">
+                <ComboBoxItem Content="mario"></ComboBoxItem>
+                <ComboBoxItem Content="donkey"></ComboBoxItem>
+                <ComboBoxItem Content="link"></ComboBoxItem>
+                <ComboBoxItem Content="samus"></ComboBoxItem>
+                <ComboBoxItem Content="samusd"></ComboBoxItem>
+                <ComboBoxItem Content="yoshi"></ComboBoxItem>
+                <ComboBoxItem Content="kirby"></ComboBoxItem>
+                <ComboBoxItem Content="fox"></ComboBoxItem>
+                <ComboBoxItem Content="pikachu"></ComboBoxItem>
+                <ComboBoxItem Content="luigi"></ComboBoxItem>
+                <ComboBoxItem Content="ness"></ComboBoxItem>
+                <ComboBoxItem Content="captain"></ComboBoxItem>
+                <ComboBoxItem Content="purin"></ComboBoxItem>
+                <ComboBoxItem Content="peach"></ComboBoxItem>
+                <ComboBoxItem Content="daisy"></ComboBoxItem>
+                <ComboBoxItem Content="koopa"></ComboBoxItem>
+                <ComboBoxItem Content="koopag"></ComboBoxItem>
+                <ComboBoxItem Content="nana"></ComboBoxItem>
+                <ComboBoxItem Content="popo"></ComboBoxItem>
+                <ComboBoxItem Content="sheik"></ComboBoxItem>
+                <ComboBoxItem Content="zelda"></ComboBoxItem>
+                <ComboBoxItem Content="mariod"></ComboBoxItem>
+                <ComboBoxItem Content="pichu"></ComboBoxItem>
+               <ComboBoxItem Content="falco"></ComboBoxItem>
+                <ComboBoxItem Content="marth"></ComboBoxItem>
+                <ComboBoxItem Content="lucina"></ComboBoxItem>
+                <ComboBoxItem Content="younglink"></ComboBoxItem>
+                <ComboBoxItem Content="ganon"></ComboBoxItem>
+                <ComboBoxItem Content="mewtwo"></ComboBoxItem>
+                <ComboBoxItem Content="roy"></ComboBoxItem>
+                <ComboBoxItem Content="chrom"></ComboBoxItem>
+                <ComboBoxItem Content="gamewatch"></ComboBoxItem>
+                <ComboBoxItem Content="metaknight"></ComboBoxItem>
+                <ComboBoxItem Content="pit"></ComboBoxItem>
+                <ComboBoxItem Content="pitb"></ComboBoxItem>
+                <ComboBoxItem Content="szerosuit"></ComboBoxItem>
+                <ComboBoxItem Content="wario"></ComboBoxItem>
+                <ComboBoxItem Content="snake"></ComboBoxItem>
+                <ComboBoxItem Content="ike"></ComboBoxItem>
+                <ComboBoxItem Content="ptrainer"></ComboBoxItem>
+                <ComboBoxItem Content="pzenigame"></ComboBoxItem>
+                <ComboBoxItem Content="pfushigisou"></ComboBoxItem>
+                <ComboBoxItem Content="plizardon"></ComboBoxItem>
+                <ComboBoxItem Content="diddy"></ComboBoxItem>
+                <ComboBoxItem Content="lucas"></ComboBoxItem>
+                <ComboBoxItem Content="sonic"></ComboBoxItem>
+                <ComboBoxItem Content="dedede"></ComboBoxItem>
+                <ComboBoxItem Content="pikmin"></ComboBoxItem>
+                <ComboBoxItem Content="lucario"></ComboBoxItem>
+                <ComboBoxItem Content="robot"></ComboBoxItem>
+                <ComboBoxItem Content="toonlink"></ComboBoxItem>
+                <ComboBoxItem Content="wolf"></ComboBoxItem>
+                <ComboBoxItem Content="murabito"></ComboBoxItem>
+                <ComboBoxItem Content="rockman"></ComboBoxItem>
+                <ComboBoxItem Content="wiifit"></ComboBoxItem>
+                <ComboBoxItem Content="rosetta"></ComboBoxItem>
+                <ComboBoxItem Content="littlemac"></ComboBoxItem>
+                <ComboBoxItem Content="gekkouga"></ComboBoxItem>
+                <ComboBoxItem Content="miifighter"></ComboBoxItem>
+                <ComboBoxItem Content="miiswordsman"></ComboBoxItem>
+                <ComboBoxItem Content="mii gunner"></ComboBoxItem>
+                <ComboBoxItem Content="palutena"></ComboBoxItem>
+                <ComboBoxItem Content="pacman"></ComboBoxItem>
+                <ComboBoxItem Content="reflet"></ComboBoxItem>
+                <ComboBoxItem Content="shulk"></ComboBoxItem>
+                <ComboBoxItem Content="koopajr"></ComboBoxItem>
+                <ComboBoxItem Content="duckhunt"></ComboBoxItem>
+                <ComboBoxItem Content="ryu"></ComboBoxItem>
+                <ComboBoxItem Content="ken"></ComboBoxItem>
+                <ComboBoxItem Content="cloud"></ComboBoxItem>
+                <ComboBoxItem Content="kamui"></ComboBoxItem>
+                <ComboBoxItem Content="bayonetta"></ComboBoxItem>
+                <ComboBoxItem Content="inkling"></ComboBoxItem>
+                <ComboBoxItem Content="ridley"></ComboBoxItem>
+                <ComboBoxItem Content="simon"></ComboBoxItem>
+                <ComboBoxItem Content="richter"></ComboBoxItem>
+                <ComboBoxItem Content="krool"></ComboBoxItem>
+                <ComboBoxItem Content="shizue"></ComboBoxItem>
+                <ComboBoxItem Content="gaogaen"></ComboBoxItem>
+                <ComboBoxItem Content="packun"></ComboBoxItem>
+                <ComboBoxItem Content="jack"></ComboBoxItem>
+                <ComboBoxItem Content="brave"></ComboBoxItem>
+                <ComboBoxItem Content="buddy"></ComboBoxItem>
+                <ComboBoxItem Content="dolly"></ComboBoxItem>
+                <ComboBoxItem Content="master"></ComboBoxItem>
+                <ComboBoxItem Content="tantan"></ComboBoxItem>
+                <ComboBoxItem Content="pickel"></ComboBoxItem>
+                <ComboBoxItem Content="edge"></ComboBoxItem>
+                <ComboBoxItem Content="eflame"></ComboBoxItem>
+                <ComboBoxItem Content="element"></ComboBoxItem>
+                <ComboBoxItem Content="elight"></ComboBoxItem>
+                <ComboBoxItem Content="demon"></ComboBoxItem>
+               <ComboBoxItem Content="trail"></ComboBoxItem>
+        </ComboBox>
+            <Label Content="Fighter" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
+            <Button Content="Start" HorizontalAlignment="Left" Margin="208,173,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+            <Label Content="Move" HorizontalAlignment="Left" Margin="10,99,0,0" VerticalAlignment="Top"/>
+            <TextBox HorizontalAlignment="Left" Margin="10,125,0,0" Text="{Binding MoveName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+
+        </Grid>
+    </Window>
+
