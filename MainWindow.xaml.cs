@@ -63,6 +63,7 @@ namespace Hitbox_Editor
         public string aSFXType { get; set; }
         public string aType { get; set; }
         public string WorkModule { get; set; }
+        public string pathToCompile { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -113,7 +114,6 @@ namespace Hitbox_Editor
             Fighter = fighter_list.Text;
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
-            MessageBox.Show("Added");
             AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule);
             indexNumber = indexNumber + 1;
             boc.Text = File.ReadAllText("Code.rs");
@@ -125,21 +125,18 @@ namespace Hitbox_Editor
             Fighter = fighter_list.Text;
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
-            MessageBox.Show("Started");
             writeCurrentMove(MoveName, Fighter);
             StartCode(MoveName, Fighter);
             boc.Text = File.ReadAllText("Code.rs");
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Started");
             ActionCheck = actionCheck.Text;
             startAction(ActionCheck, FrameNumber);
             boc.Text = File.ReadAllText("Code.rs");
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Ended");
             indexNumber = 0;
             endAction();
             boc.Text = File.ReadAllText("Code.rs");
@@ -270,7 +267,6 @@ namespace Hitbox_Editor
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Finished");
             FinishScript(Fighter, MoveName);
             boc.Text = File.ReadAllText("Code.rs");
         }
@@ -291,6 +287,21 @@ namespace Hitbox_Editor
             };
             await File.AppendAllLinesAsync("Code.rs", lines);
 
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            
+            var startInfo = new System.Diagnostics.ProcessStartInfo
+            {
+                WorkingDirectory = @pathToCompile,
+                WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal,
+                FileName = "cmd.exe",
+                RedirectStandardInput = true,
+                UseShellExecute = false
+            };
+            startInfo.Arguments = "cargo skyline build --release";
+            System.Diagnostics.Process.Start(startInfo);
         }
     }
 }

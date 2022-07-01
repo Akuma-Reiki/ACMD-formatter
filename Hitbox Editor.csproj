@@ -5,6 +5,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>Hitbox_Editor</RootNamespace>
     <UseWPF>true</UseWPF>
+    <Authors>Akuma_Reiki</Authors>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="backdrop.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="backdrop.png" />
+  </ItemGroup>
 
 </Project>

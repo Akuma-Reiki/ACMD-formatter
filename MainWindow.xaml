@@ -5,203 +5,206 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Hitbox_Editor"
         mc:Ignorable="d"
-        Title="Hitbox Editor" Height="1080" Width="1920" Background="DarkGray">
+        Title="Hitbox Editor" Height="720" Width="1080" Background="DarkGray">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/backdrop.png"/>
+        </Grid.Background>
+        <Rectangle HorizontalAlignment="Left" Height="990" Margin="916,10,0,0" VerticalAlignment="Top" Width="849" Fill="#CC6C6C6C"/>
         <ComboBox x:Name="fighter_list" HorizontalAlignment="Left" Margin="10,29,0,0" VerticalAlignment="Top" Width="120" SelectedItem="Fighter">
-            <ComboBoxItem Content="mario"></ComboBoxItem>
-            <ComboBoxItem Content="donkey"></ComboBoxItem>
-            <ComboBoxItem Content="link"></ComboBoxItem>
-            <ComboBoxItem Content="samus"></ComboBoxItem>
-            <ComboBoxItem Content="samusd"></ComboBoxItem>
-            <ComboBoxItem Content="yoshi"></ComboBoxItem>
-            <ComboBoxItem Content="kirby"></ComboBoxItem>
-            <ComboBoxItem Content="fox"></ComboBoxItem>
-            <ComboBoxItem Content="pikachu"></ComboBoxItem>
-            <ComboBoxItem Content="luigi"></ComboBoxItem>
-            <ComboBoxItem Content="ness"></ComboBoxItem>
-            <ComboBoxItem Content="captain"></ComboBoxItem>
-            <ComboBoxItem Content="purin"></ComboBoxItem>
-            <ComboBoxItem Content="peach"></ComboBoxItem>
-            <ComboBoxItem Content="daisy"></ComboBoxItem>
-            <ComboBoxItem Content="koopa"></ComboBoxItem>
-            <ComboBoxItem Content="koopag"></ComboBoxItem>
-            <ComboBoxItem Content="nana"></ComboBoxItem>
-            <ComboBoxItem Content="popo"></ComboBoxItem>
-            <ComboBoxItem Content="sheik"></ComboBoxItem>
-            <ComboBoxItem Content="zelda"></ComboBoxItem>
-            <ComboBoxItem Content="mariod"></ComboBoxItem>
-            <ComboBoxItem Content="pichu"></ComboBoxItem>
-            <ComboBoxItem Content="falco"></ComboBoxItem>
-            <ComboBoxItem Content="marth"></ComboBoxItem>
-            <ComboBoxItem Content="lucina"></ComboBoxItem>
-            <ComboBoxItem Content="younglink"></ComboBoxItem>
-            <ComboBoxItem Content="ganon"></ComboBoxItem>
-            <ComboBoxItem Content="mewtwo"></ComboBoxItem>
-            <ComboBoxItem Content="roy"></ComboBoxItem>
-            <ComboBoxItem Content="chrom"></ComboBoxItem>
-            <ComboBoxItem Content="gamewatch"></ComboBoxItem>
-            <ComboBoxItem Content="metaknight"></ComboBoxItem>
-            <ComboBoxItem Content="pit"></ComboBoxItem>
-            <ComboBoxItem Content="pitb"></ComboBoxItem>
-            <ComboBoxItem Content="szerosuit"></ComboBoxItem>
-            <ComboBoxItem Content="wario"></ComboBoxItem>
-            <ComboBoxItem Content="snake"></ComboBoxItem>
-            <ComboBoxItem Content="ike"></ComboBoxItem>
-            <ComboBoxItem Content="ptrainer"></ComboBoxItem>
-            <ComboBoxItem Content="pzenigame"></ComboBoxItem>
-            <ComboBoxItem Content="pfushigisou"></ComboBoxItem>
-            <ComboBoxItem Content="plizardon"></ComboBoxItem>
-            <ComboBoxItem Content="diddy"></ComboBoxItem>
-            <ComboBoxItem Content="lucas"></ComboBoxItem>
-            <ComboBoxItem Content="sonic"></ComboBoxItem>
-            <ComboBoxItem Content="dedede"></ComboBoxItem>
-            <ComboBoxItem Content="pikmin"></ComboBoxItem>
-            <ComboBoxItem Content="lucario"></ComboBoxItem>
-            <ComboBoxItem Content="robot"></ComboBoxItem>
-            <ComboBoxItem Content="toonlink"></ComboBoxItem>
-            <ComboBoxItem Content="wolf"></ComboBoxItem>
-            <ComboBoxItem Content="murabito"></ComboBoxItem>
-            <ComboBoxItem Content="rockman"></ComboBoxItem>
-            <ComboBoxItem Content="wiifit"></ComboBoxItem>
-            <ComboBoxItem Content="rosetta"></ComboBoxItem>
-            <ComboBoxItem Content="littlemac"></ComboBoxItem>
-            <ComboBoxItem Content="gekkouga"></ComboBoxItem>
-            <ComboBoxItem Content="miifighter"></ComboBoxItem>
-            <ComboBoxItem Content="miiswordsman"></ComboBoxItem>
-            <ComboBoxItem Content="mii gunner"></ComboBoxItem>
-            <ComboBoxItem Content="palutena"></ComboBoxItem>
-            <ComboBoxItem Content="pacman"></ComboBoxItem>
-            <ComboBoxItem Content="reflet"></ComboBoxItem>
-            <ComboBoxItem Content="shulk"></ComboBoxItem>
-            <ComboBoxItem Content="koopajr"></ComboBoxItem>
-            <ComboBoxItem Content="duckhunt"></ComboBoxItem>
-            <ComboBoxItem Content="ryu"></ComboBoxItem>
-            <ComboBoxItem Content="ken"></ComboBoxItem>
-            <ComboBoxItem Content="cloud"></ComboBoxItem>
-            <ComboBoxItem Content="kamui"></ComboBoxItem>
-            <ComboBoxItem Content="bayonetta"></ComboBoxItem>
-            <ComboBoxItem Content="inkling"></ComboBoxItem>
-            <ComboBoxItem Content="ridley"></ComboBoxItem>
-            <ComboBoxItem Content="simon"></ComboBoxItem>
-            <ComboBoxItem Content="richter"></ComboBoxItem>
-            <ComboBoxItem Content="krool"></ComboBoxItem>
-            <ComboBoxItem Content="shizue"></ComboBoxItem>
-            <ComboBoxItem Content="gaogaen"></ComboBoxItem>
-            <ComboBoxItem Content="packun"></ComboBoxItem>
-            <ComboBoxItem Content="jack"></ComboBoxItem>
-            <ComboBoxItem Content="brave"></ComboBoxItem>
-            <ComboBoxItem Content="buddy"></ComboBoxItem>
-            <ComboBoxItem Content="dolly"></ComboBoxItem>
-            <ComboBoxItem Content="master"></ComboBoxItem>
-            <ComboBoxItem Content="tantan"></ComboBoxItem>
-            <ComboBoxItem Content="pickel"></ComboBoxItem>
-            <ComboBoxItem Content="edge"></ComboBoxItem>
-            <ComboBoxItem Content="eflame"></ComboBoxItem>
-            <ComboBoxItem Content="element"></ComboBoxItem>
-            <ComboBoxItem Content="elight"></ComboBoxItem>
-            <ComboBoxItem Content="demon"></ComboBoxItem>
-            <ComboBoxItem Content="trail"></ComboBoxItem>
+            <ComboBoxItem Content="mario"/>
+            <ComboBoxItem Content="donkey"/>
+            <ComboBoxItem Content="link"/>
+            <ComboBoxItem Content="samus"/>
+            <ComboBoxItem Content="samusd"/>
+            <ComboBoxItem Content="yoshi"/>
+            <ComboBoxItem Content="kirby"/>
+            <ComboBoxItem Content="fox"/>
+            <ComboBoxItem Content="pikachu"/>
+            <ComboBoxItem Content="luigi"/>
+            <ComboBoxItem Content="ness"/>
+            <ComboBoxItem Content="captain"/>
+            <ComboBoxItem Content="purin"/>
+            <ComboBoxItem Content="peach"/>
+            <ComboBoxItem Content="daisy"/>
+            <ComboBoxItem Content="koopa"/>
+            <ComboBoxItem Content="koopag"/>
+            <ComboBoxItem Content="nana"/>
+            <ComboBoxItem Content="popo"/>
+            <ComboBoxItem Content="sheik"/>
+            <ComboBoxItem Content="zelda"/>
+            <ComboBoxItem Content="mariod"/>
+            <ComboBoxItem Content="pichu"/>
+            <ComboBoxItem Content="falco"/>
+            <ComboBoxItem Content="marth"/>
+            <ComboBoxItem Content="lucina"/>
+            <ComboBoxItem Content="younglink"/>
+            <ComboBoxItem Content="ganon"/>
+            <ComboBoxItem Content="mewtwo"/>
+            <ComboBoxItem Content="roy"/>
+            <ComboBoxItem Content="chrom"/>
+            <ComboBoxItem Content="gamewatch"/>
+            <ComboBoxItem Content="metaknight"/>
+            <ComboBoxItem Content="pit"/>
+            <ComboBoxItem Content="pitb"/>
+            <ComboBoxItem Content="szerosuit"/>
+            <ComboBoxItem Content="wario"/>
+            <ComboBoxItem Content="snake"/>
+            <ComboBoxItem Content="ike"/>
+            <ComboBoxItem Content="ptrainer"/>
+            <ComboBoxItem Content="pzenigame"/>
+            <ComboBoxItem Content="pfushigisou"/>
+            <ComboBoxItem Content="plizardon"/>
+            <ComboBoxItem Content="diddy"/>
+            <ComboBoxItem Content="lucas"/>
+            <ComboBoxItem Content="sonic"/>
+            <ComboBoxItem Content="dedede"/>
+            <ComboBoxItem Content="pikmin"/>
+            <ComboBoxItem Content="lucario"/>
+            <ComboBoxItem Content="robot"/>
+            <ComboBoxItem Content="toonlink"/>
+            <ComboBoxItem Content="wolf"/>
+            <ComboBoxItem Content="murabito"/>
+            <ComboBoxItem Content="rockman"/>
+            <ComboBoxItem Content="wiifit"/>
+            <ComboBoxItem Content="rosetta"/>
+            <ComboBoxItem Content="littlemac"/>
+            <ComboBoxItem Content="gekkouga"/>
+            <ComboBoxItem Content="miifighter"/>
+            <ComboBoxItem Content="miiswordsman"/>
+            <ComboBoxItem Content="mii gunner"/>
+            <ComboBoxItem Content="palutena"/>
+            <ComboBoxItem Content="pacman"/>
+            <ComboBoxItem Content="reflet"/>
+            <ComboBoxItem Content="shulk"/>
+            <ComboBoxItem Content="koopajr"/>
+            <ComboBoxItem Content="duckhunt"/>
+            <ComboBoxItem Content="ryu"/>
+            <ComboBoxItem Content="ken"/>
+            <ComboBoxItem Content="cloud"/>
+            <ComboBoxItem Content="kamui"/>
+            <ComboBoxItem Content="bayonetta"/>
+            <ComboBoxItem Content="inkling"/>
+            <ComboBoxItem Content="ridley"/>
+            <ComboBoxItem Content="simon"/>
+            <ComboBoxItem Content="richter"/>
+            <ComboBoxItem Content="krool"/>
+            <ComboBoxItem Content="shizue"/>
+            <ComboBoxItem Content="gaogaen"/>
+            <ComboBoxItem Content="packun"/>
+            <ComboBoxItem Content="jack"/>
+            <ComboBoxItem Content="brave"/>
+            <ComboBoxItem Content="buddy"/>
+            <ComboBoxItem Content="dolly"/>
+            <ComboBoxItem Content="master"/>
+            <ComboBoxItem Content="tantan"/>
+            <ComboBoxItem Content="pickel"/>
+            <ComboBoxItem Content="edge"/>
+            <ComboBoxItem Content="eflame"/>
+            <ComboBoxItem Content="element"/>
+            <ComboBoxItem Content="elight"/>
+            <ComboBoxItem Content="demon"/>
+            <ComboBoxItem Content="trail"/>
         </ComboBox>
-        <Label Content="Fighter" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fighter" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Button Content="Load Attack" HorizontalAlignment="Left" Margin="318,29,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
-        <Label HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Content="Action group"/>
-        <Label Content="Move" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="162,3,0,0"/>
+        <Label HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Content="Action group" Foreground="White"/>
+        <Label Content="Move" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="162,3,0,0" Foreground="White"/>
         <TextBox HorizontalAlignment="Left" Margin="162,31,0,0" Text="{Binding MoveName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="318,84,0,0" Text="{Binding FrameNumber}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Frame start" HorizontalAlignment="Left" Margin="318,56,0,0" VerticalAlignment="Top"/>
+        <Label Content="Frame start" HorizontalAlignment="Left" Margin="318,56,0,0" VerticalAlignment="Top" Foreground="White"/>
         <ComboBox x:Name="frame_action" HorizontalAlignment="Left" Margin="162,82,0,0" VerticalAlignment="Top" Width="120" SelectedItem="FrameAction">
             <ComboBoxItem Content=""/>
             <ComboBoxItem Content="macros::ATTACK"/>
-            <ComboBoxItem Content="AttackModule::clear_all"></ComboBoxItem>
-            <ComboBoxItem Content="WorkModule::on_flag"></ComboBoxItem>
-            <ComboBoxItem Content="WorkModule::off_flag"></ComboBoxItem>
+            <ComboBoxItem Content="AttackModule::clear_all"/>
+            <ComboBoxItem Content="WorkModule::on_flag"/>
+            <ComboBoxItem Content="WorkModule::off_flag"/>
         </ComboBox>
         <ComboBox x:Name ="actionCheck" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="120" SelectedItem="ActionCheck">
             <ComboBoxItem Content="Attack/Set Flag"/>
             <ComboBoxItem Content="Wait"/>
         </ComboBox>
-        <Label Content="Action" HorizontalAlignment="Left" Margin="162,56,0,0" VerticalAlignment="Top"/>
-        <Button Content="Add Current Action" HorizontalAlignment="Left" Margin="162,412,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Finish" HorizontalAlignment="Left" Margin="10,437,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
-        <Button Content="Start Frame Group" HorizontalAlignment="Left" Margin="10,412,0,0" VerticalAlignment="Top" Click="Button_Click_3"/>
-        <Button Content="End Frame Group" HorizontalAlignment="Left" Margin="318,412,0,0" VerticalAlignment="Top" Click="Button_Click_4"/>
-        <Label Content="Part" HorizontalAlignment="Left" Margin="12,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="X" HorizontalAlignment="Left" Margin="318,152,0,0" VerticalAlignment="Top"/>
-        <Label Content="Size" HorizontalAlignment="Left" Margin="162,152,0,0" VerticalAlignment="Top"/>
-        <Label Content="Damage" HorizontalAlignment="Left" Margin="318,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="Bone" HorizontalAlignment="Left" Margin="162,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="Set Weight" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Y2" HorizontalAlignment="Left" Margin="12,205,0,0" VerticalAlignment="Top"/>
-        <Label Content="BKB" HorizontalAlignment="Left" Margin="12,152,0,0" VerticalAlignment="Top"/>
-        <Label Content="Trip" HorizontalAlignment="Left" Margin="316,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Z2" HorizontalAlignment="Left" Margin="162,205,0,0" VerticalAlignment="Top"/>
-        <Label Content="Rehit" HorizontalAlignment="Left" Margin="459,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Hitlag" HorizontalAlignment="Left" Margin="318,205,0,0" VerticalAlignment="Top"/>
-        <Label Content="Angle" HorizontalAlignment="Left" Margin="463,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="X2" HorizontalAlignment="Left" Margin="761,152,0,0" VerticalAlignment="Top"/>
-        <Label Content="Z" HorizontalAlignment="Left" Margin="605,152,0,0" VerticalAlignment="Top"/>
-        <Label Content="FKB" HorizontalAlignment="Left" Margin="761,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="KBG" HorizontalAlignment="Left" Margin="605,104,0,0" VerticalAlignment="Top"/>
-        <Label Content="Reflectable" HorizontalAlignment="Left" Margin="609,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="SDI" HorizontalAlignment="Left" Margin="463,205,0,0" VerticalAlignment="Top"/>
-        <Label Content="Y" HorizontalAlignment="Left" Margin="463,152,0,0" VerticalAlignment="Top"/>
-        <Label Content="Absorable" HorizontalAlignment="Left" Margin="759,253,0,0" VerticalAlignment="Top"/>
-        <Label Content="Clang Rebound" HorizontalAlignment="Left" Margin="605,205,0,0" VerticalAlignment="Top"/>
-        <Label Content="Flinchless" HorizontalAlignment="Left" Margin="8,300,0,0" VerticalAlignment="Top"/>
-        <Label Content="Facing Restrict" HorizontalAlignment="Left" Margin="761,205,0,0" VerticalAlignment="Top"/>
-        <Label Content="Effect" HorizontalAlignment="Left" Margin="166,349,0,0" VerticalAlignment="Top"/>
-        <Label Content="DisableHitlag" HorizontalAlignment="Left" Margin="164,301,0,0" VerticalAlignment="Top"/>
-        <Label Content="SFXLevel" HorizontalAlignment="Left" Margin="316,349,0,0" VerticalAlignment="Top"/>
-        <Label Content="Direct Hitbox" HorizontalAlignment="Left" Margin="318,301,0,0" VerticalAlignment="Top"/>
-        <Label Content="SFXType" HorizontalAlignment="Left" Margin="459,349,0,0" VerticalAlignment="Top"/>
-        <Label Content="Ground or Air" HorizontalAlignment="Left" Margin="461,301,0,0" VerticalAlignment="Top"/>
-        <Label Content="Type" HorizontalAlignment="Left" Margin="609,349,0,0" VerticalAlignment="Top"/>
-        <Label Content="Hitbits" HorizontalAlignment="Left" Margin="611,301,0,0" VerticalAlignment="Top"/>
-        <Label Content="Collision Part" HorizontalAlignment="Left" Margin="761,301,0,0" VerticalAlignment="Top"/>
-        <Label Content="Friendly Fire" HorizontalAlignment="Left" Margin="12,350,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,130,0,0" Text="{Binding aPart}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="162,130,0,0" Text="{Binding aBone}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="318,130,0,0" Text="{Binding aDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="461,130,0,0" Text="{Binding aAngle}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="605,130,0,0" Text="{Binding aKBG}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="761,130,0,0" Text="{Binding aFKB}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,178,0,0" Text="{Binding aBKB}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="162,178,0,0" Text="{Binding aSize}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="318,178,0,0" Text="{Binding aX}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="461,178,0,0" Text="{Binding aY}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="605,178,0,0" Text="{Binding aZ}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="761,178,0,0" Text="{Binding aX2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,230,0,0" Text="{Binding aY2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="162,230,0,0" Text="{Binding aZ2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="318,230,0,0" Text="{Binding aHitlag}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="461,230,0,0" Text="{Binding aSDI}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="605,230,0,0" Text="{Binding aClang_Rebound}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="761,230,0,0" Text="{Binding aFacingRestrict}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,279,0,0" Text="{Binding aSetWeight}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="318,279,0,0" Text="{Binding aTrip}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="461,279,0,0" Text="{Binding aRehit}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="609,279,0,0" Text="{Binding aReflectable}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="761,279,0,0" Text="{Binding aAbsorable}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="10,326,0,0" Text="{Binding aFlinchless}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="162,326,0,0" Text="{Binding aDisableHitLag}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="318,326,0,0" Text="{Binding aDirect_Hitbox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="461,326,0,0" Text="{Binding aGround_or_Air}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="609,326,0,0" Text="{Binding aHitbits}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="761,326,0,0" Text="{Binding aCollisionPart}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="12,375,0,0" Text="{Binding aFriendlyFire}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="166,375,0,0" Text="{Binding aEffect}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="318,375,0,0" Text="{Binding aSFXLevel}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="461,375,0,0" Text="{Binding aSFXType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Margin="609,375,0,0" Text="{Binding aType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Shield Damage" HorizontalAlignment="Left" Margin="162,253,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Margin="162,279,0,0" Text="{Binding aShieldDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Action" HorizontalAlignment="Left" Margin="162,56,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Button Content="Add Current Action" HorizontalAlignment="Left" Margin="164,462,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="Finish" HorizontalAlignment="Left" Margin="12,488,0,0" VerticalAlignment="Top" Click="Button_Click_2"/>
+        <Button Content="Start Frame Group" HorizontalAlignment="Left" Margin="12,462,0,0" VerticalAlignment="Top" Click="Button_Click_3"/>
+        <Button Content="End Frame Group" HorizontalAlignment="Left" Margin="320,462,0,0" VerticalAlignment="Top" Click="Button_Click_4"/>
+        <Label Content="Part" HorizontalAlignment="Left" Margin="12,134,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="X" HorizontalAlignment="Left" Margin="318,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Size" HorizontalAlignment="Left" Margin="162,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Damage" HorizontalAlignment="Left" Margin="318,134,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Bone" HorizontalAlignment="Left" Margin="162,134,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Set Weight" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Y2" HorizontalAlignment="Left" Margin="12,235,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="BKB" HorizontalAlignment="Left" Margin="12,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Trip" HorizontalAlignment="Left" Margin="316,294,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Z2" HorizontalAlignment="Left" Margin="162,235,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Rehit" HorizontalAlignment="Left" Margin="459,294,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Hitlag" HorizontalAlignment="Left" Margin="318,235,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Angle" HorizontalAlignment="Left" Margin="463,134,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="X2" HorizontalAlignment="Left" Margin="761,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Z" HorizontalAlignment="Left" Margin="605,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="FKB" HorizontalAlignment="Left" Margin="761,134,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="KBG" HorizontalAlignment="Left" Margin="605,134,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Reflectable" HorizontalAlignment="Left" Margin="609,294,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="SDI" HorizontalAlignment="Left" Margin="463,235,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Y" HorizontalAlignment="Left" Margin="463,182,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Absorable" HorizontalAlignment="Left" Margin="759,294,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Clang Rebound" HorizontalAlignment="Left" Margin="605,235,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Flinchless" HorizontalAlignment="Left" Margin="10,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Facing Restrict" HorizontalAlignment="Left" Margin="761,235,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Effect" HorizontalAlignment="Left" Margin="168,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="DisableHitlag" HorizontalAlignment="Left" Margin="164,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="SFXLevel" HorizontalAlignment="Left" Margin="318,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Direct Hitbox" HorizontalAlignment="Left" Margin="318,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="SFXType" HorizontalAlignment="Left" Margin="461,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Ground or Air" HorizontalAlignment="Left" Margin="461,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Type" HorizontalAlignment="Left" Margin="611,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Hitbits" HorizontalAlignment="Left" Margin="611,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Collision Part" HorizontalAlignment="Left" Margin="761,342,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label Content="Friendly Fire" HorizontalAlignment="Left" Margin="14,400,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,160,0,0" Text="{Binding aPart}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="162,160,0,0" Text="{Binding aBone}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="318,160,0,0" Text="{Binding aDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="461,160,0,0" Text="{Binding aAngle}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="605,160,0,0" Text="{Binding aKBG}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="761,160,0,0" Text="{Binding aFKB}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,208,0,0" Text="{Binding aBKB}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="162,208,0,0" Text="{Binding aSize}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="318,208,0,0" Text="{Binding aX}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="461,208,0,0" Text="{Binding aY}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="605,208,0,0" Text="{Binding aZ}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="761,208,0,0" Text="{Binding aX2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,260,0,0" Text="{Binding aY2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="162,260,0,0" Text="{Binding aZ2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="318,260,0,0" Text="{Binding aHitlag}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="461,260,0,0" Text="{Binding aSDI}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="605,260,0,0" Text="{Binding aClang_Rebound}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="761,260,0,0" Text="{Binding aFacingRestrict}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,320,0,0" Text="{Binding aSetWeight}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="318,320,0,0" Text="{Binding aTrip}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="461,320,0,0" Text="{Binding aRehit}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="609,320,0,0" Text="{Binding aReflectable}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="761,320,0,0" Text="{Binding aAbsorable}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="10,366,0,0" Text="{Binding aFlinchless}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="162,366,0,0" Text="{Binding aDisableHitLag}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="318,366,0,0" Text="{Binding aDirect_Hitbox}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="461,366,0,0" Text="{Binding aGround_or_Air}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="609,366,0,0" Text="{Binding aHitbits}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="761,366,0,0" Text="{Binding aCollisionPart}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="14,426,0,0" Text="{Binding aFriendlyFire}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="168,426,0,0" Text="{Binding aEffect}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="320,426,0,0" Text="{Binding aSFXLevel}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="463,426,0,0" Text="{Binding aSFXType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="611,426,0,0" Text="{Binding aType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Shield Damage" HorizontalAlignment="Left" Margin="162,294,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" Margin="162,320,0,0" Text="{Binding aShieldDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="459,84,0,0" Text="{Binding WorkModule}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Work Modules" HorizontalAlignment="Left" Margin="463,56,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name ="boc" HorizontalAlignment="Left" Margin="960,16,0,0" Text="{Binding codeText}" TextWrapping="Wrap" VerticalAlignment="Top" Height="984" Width="805" Background="#FF6C6C6C" FontFamily="Bahnschrift SemiBold">
-            <TextBlock.Effect>
-                <DropShadowEffect/>
-            </TextBlock.Effect>
-        </TextBlock>
+        <Label Content="Work Modules" HorizontalAlignment="Left" Margin="463,56,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBlock x:Name ="boc" HorizontalAlignment="Left" Margin="960,16,0,0" Text="{Binding codeText}" TextWrapping="Wrap" VerticalAlignment="Top" Height="984" Width="805" Background="#086C6C6C" FontFamily="Bahnschrift SemiBold" OpacityMask="#CC000000" Foreground="#CCE6E6E6"/>
+        <Button Content="Compile" HorizontalAlignment="Left" Margin="149,580,0,0" VerticalAlignment="Top" Height="48" Width="98" Click="Button_Click_5"/>
+        <TextBox HorizontalAlignment="Left" Margin="24,610,0,0" Text="{Binding pathToCompile}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Path to plugin folder" HorizontalAlignment="Left" Margin="24,584,0,0" VerticalAlignment="Top" Foreground="White"/>
     </Grid>
 </Window>
 
