@@ -195,6 +195,8 @@
         <TextBox HorizontalAlignment="Left" Margin="609,375,0,0" Text="{Binding aType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Shield Damage" HorizontalAlignment="Left" Margin="162,253,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Margin="162,279,0,0" Text="{Binding aShieldDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Margin="459,84,0,0" Text="{Binding WorkModule}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Work Modules" HorizontalAlignment="Left" Margin="463,56,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
 

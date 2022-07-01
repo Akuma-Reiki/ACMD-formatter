@@ -62,10 +62,48 @@ namespace Hitbox_Editor
         public string aSFXLevel { get; set; }
         public string aSFXType { get; set; }
         public string aType { get; set; }
+        public string WorkModule { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
+            //initializes variables
+            WorkModule = "FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING";
+            aPart = "0";
+            aBone = "top";
+            aDamage = "0.0";
+            aAngle = "0";
+            aKBG = "0";
+            aFKB = "0";
+            aBKB = "0";
+            aSize = "0.0";
+            aX = "0.0";
+            aY = "0.0";
+            aZ = "0.0";
+            aX2 = "None";
+            aY2 = "None";
+            aZ2 = "None";
+            aHitlag = "1.0";
+            aSDI = "1.0";
+            aClang_Rebound = "ATTACK_SETOFF_KIND_ON";
+            aFacingRestrict = "ATTACK_LR_CHECK_POS";
+            aSetWeight = "false";
+            aShieldDamage = "0";
+            aTrip = "0.0";
+            aRehit = "0";
+            aReflectable = "false";
+            aAbsorable = "false";
+            aFlinchless = "false";
+            aDisableHitLag = "false";
+            aDirect_Hitbox = "true";
+            aGround_or_Air = "COLLISION_SITUATION_MASK_GA";
+            aHitbits = "COLLISION_CATEGORY_MASK_ALL";
+            aCollisionPart = "COLLISION_PART_MASK_ALL";
+            aFriendlyFire = "false";
+            aEffect = "collision_attr_rush";
+            aSFXLevel = "ATTACK_SOUND_LEVEL_S";
+            aSFXType = "COLLISION_SOUND_ATTR_KICK";
+            aType = "ATTACK_REGION_KICK";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -73,7 +111,7 @@ namespace Hitbox_Editor
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
             MessageBox.Show("Added");
-            AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType);
+            AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule);
             indexNumber++;
         }
 
@@ -110,7 +148,7 @@ namespace Hitbox_Editor
             ,"unsafe fn " + Fighter +"_" + MoveName + "_smash_script(fighter: &mut L2CAgentBase) {"
         };
 
-            await File.WriteAllLinesAsync("Code.txt", lines);
+            await File.WriteAllLinesAsync("Code.rs", lines);
         }
 
         public static async Task startAction(string ActionCheck, string FrameNumber)
@@ -119,10 +157,10 @@ namespace Hitbox_Editor
             {
             string[] lines =
             {
-            "sv_animcmd::frame(fighter.lua_state_agent, " + FrameNumber + ".0);" , ""
-            , "if macros::is_execute(fighter) {"
+            "sv_animcmd::frame(fighter.lua_state_agent, " + FrameNumber + ".0);"
+            , "if macros::is_excute(fighter) {"
             };
-            await File.AppendAllLinesAsync("Code.txt", lines);
+            await File.AppendAllLinesAsync("Code.rs", lines);
             }
             if (ActionCheck == "Wait")
             {
@@ -130,7 +168,7 @@ namespace Hitbox_Editor
                 {
                 "sv_animcmd::frame(fighter.lua_state_agent, " + FrameNumber + ".0);" 
                 };
-            await File.AppendAllLinesAsync("Code.txt", lines);
+            await File.AppendAllLinesAsync("Code.rs", lines);
             }
         }
 
@@ -141,20 +179,48 @@ namespace Hitbox_Editor
             ""
             ,"}"
             };
-            await File.AppendAllLinesAsync("Code.txt", lines);
+            await File.AppendAllLinesAsync("Code.rs", lines);
         }
 
-        public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType)
+        public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType, string WorkModule)
         {
-            string[] lines =
+
+            if (FrameAction == "macros::ATTACK")
             {
-            FrameAction + "(fighter, " + indexNumber.ToString() + ", " + aPart + ", Hash40::new(\"" + aBone + "), " + aDamage + ", " + aAngle + ", " + aKBG + ", " + aFKB + ", " + aBKB + ", " +
+                string[] lines =
+              {
+            FrameAction + "(fighter, " + indexNumber.ToString() + ", " + aPart + ", Hash40::new(\"" + aBone + "\"), " + aDamage + ", " + aAngle + ", " + aKBG + ", " + aFKB + ", " + aBKB + ", " +
             aSize + ", " + aX + ", " + aY + ", " + aZ + ", " + aX2 + ", " + aY2 + ", " + aZ2 + ", " + aHitlag + ", " + aSDI + ", *" + aClang_Rebound + ", *" + aFacingRestrict + ", " + aSetWeight + ", " +
             aShieldDamage + ", " +aTrip + ", " + aRehit + ", " + aReflectable + ", " + aAbsorable + ", " + aFlinchless + ", " + aDisableHitLag + ", " + aDirect_Hitbox + ", *" + aGround_or_Air + ", *" +
-            aHitbits + ", *" + aCollisionPart + ", " + aFriendlyFire + ", " + "Hash40::new(\"" + aEffect + "\", *" + aSFXLevel + ", *" + aSFXType + ", *" + aType
-              
+            aHitbits + ", *" + aCollisionPart + ", " + aFriendlyFire + ", " + "Hash40::new(\"" + aEffect + "\"), *" + aSFXLevel + ", *" + aSFXType + ", *" + aType + ");"
+
             };
-            await File.AppendAllLinesAsync("Code.txt", lines);
+                await File.AppendAllLinesAsync("Code.rs", lines);
+            }
+            else if (FrameAction == "AttackModule::clear_all")
+            {
+                string[] lines =
+                {
+                    "AttackModule::clear_all(fighter.module_accessor);"
+                };
+                await File.AppendAllLinesAsync("Code.rs", lines);
+            }
+            else if (FrameAction == "WorkModule::on_flag")
+            {
+                string[] lines =
+                 {
+                    "WorkModule::on_flag(fighter.module_accessor, *" + WorkModule + ");"
+                 };
+                await File.AppendAllLinesAsync("Code.rs", lines);
+            }
+            else if (FrameAction == "WorkModule::off_flag") 
+            {
+                string[] lines =
+                {
+                    "WorkModule::off_flag(fighter.module_accessor, *" + WorkModule + ");"
+                };
+                await File.AppendAllLinesAsync("Code.rs", lines);
+            }
         }
         public static async Task AddWait(string FrameNumber)
         {
@@ -162,7 +228,7 @@ namespace Hitbox_Editor
             {
                 
             };
-            await File.AppendAllLinesAsync("Code.txt", lines);
+            await File.AppendAllLinesAsync("Code.rs", lines);
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
@@ -175,7 +241,7 @@ namespace Hitbox_Editor
                 string[] lines =
                 {
             //installer code
-            ""
+            "}"
             ,"#[installer]"
             ,"pub fn install() {"
             , "smashline::install_acmd_scripts!("
@@ -183,7 +249,7 @@ namespace Hitbox_Editor
             , ");"
             , "}"
             };
-            await File.AppendAllLinesAsync("Code.txt", lines);
+            await File.AppendAllLinesAsync("Code.rs", lines);
         }
 
     }
