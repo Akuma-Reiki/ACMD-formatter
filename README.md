@@ -17,6 +17,7 @@ If it's an aerial attack set the action to be WorkModule::on, and then press Sta
 (using the default work module option).  
 After that, you can set the action to be macros::ATTACK, and put in the numbers for the first hitbox. When you're done putting them in  
 press Add Current Action. Repeat that process for as many hitboxes as you want your character to have on that frame.  
+You can also use ArticleModule::generate_article to spawn items / projectiles / whatever  
   
 You can use the action group Wait and Frame start to make it wait a certain amount of frames before doing something else, or AttackModule::clear  
 to clear all hitboxes currently active. Once you're done with the current frame group, press End Frame Group. You can make another  
