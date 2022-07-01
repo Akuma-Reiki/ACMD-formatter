@@ -104,6 +104,9 @@ namespace Hitbox_Editor
             aSFXLevel = "ATTACK_SOUND_LEVEL_S";
             aSFXType = "COLLISION_SOUND_ATTR_KICK";
             aType = "ATTACK_REGION_KICK";
+            removeOldMoves();
+            removeOldCode();
+            boc.Text = File.ReadAllText("Code.rs");
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -112,7 +115,9 @@ namespace Hitbox_Editor
             FrameAction = frame_action.Text;
             MessageBox.Show("Added");
             AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule);
-            indexNumber++;
+            indexNumber = indexNumber + 1;
+            boc.Text = File.ReadAllText("Code.rs");
+            
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -121,36 +126,69 @@ namespace Hitbox_Editor
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
             MessageBox.Show("Started");
-            StartCode(MoveName, Fighter, ActionCheck, FrameNumber, FrameAction);
+            writeCurrentMove(MoveName, Fighter);
+            StartCode(MoveName, Fighter);
+            boc.Text = File.ReadAllText("Code.rs");
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Started");
             ActionCheck = actionCheck.Text;
-            startAction(ActionCheck, FrameNumber);      
+            startAction(ActionCheck, FrameNumber);
+            boc.Text = File.ReadAllText("Code.rs");
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Ended");
             indexNumber = 0;
             endAction();
+            boc.Text = File.ReadAllText("Code.rs");
         }
 
-        public static async Task StartCode(string MoveName, string Fighter, string ActionCheck, string FrameNumber, string FrameAction)
+        public static async Task writeCurrentMove(string MoveName, string Fighter)
         {
-           
-                string[] lines =
-            {
-                //the use commands
+
+            string[] lines =
+        {
+            Fighter + "_" + MoveName + "_smash_script"
+        };
+
+            await File.AppendAllLinesAsync("scripts.txt", lines);
+        }
+        public static async Task removeOldMoves()
+        {
+
+            string[] lines =
+        {
+            ""
+        };
+
+            await File.WriteAllLinesAsync("scripts.txt", lines);
+        }
+        public static async Task removeOldCode()
+        {
+
+            string[] lines =
+        {
             "use smash::app::lua_bind::*;", "use smash::app::sv_animcmd;", "use smash::lua2cpp::L2CAgentBase;", "use smash::phx::Hash40;", "use smash::lib::lua_const::*;", "use smashline::*;", "use smash_script::*;", ""
-            // character and move selection
-            ,"#[acmd_script( agent = \"" + Fighter + "\", script = \"game_" + MoveName + "\", category = ACMD_GAME )]" , ""
-            ,"unsafe fn " + Fighter +"_" + MoveName + "_smash_script(fighter: &mut L2CAgentBase) {"
         };
 
             await File.WriteAllLinesAsync("Code.rs", lines);
         }
+        public static async Task StartCode(string MoveName, string Fighter)
+        {
+           
+                string[] lines =
+            {
+             // character and move selection
+            "#[acmd_script( agent = \"" + Fighter + "\", script = \"game_" + MoveName + "\", category = ACMD_GAME )]" , ""
+            ,"unsafe fn " + Fighter +"_" + MoveName + "_smash_script(fighter: &mut L2CAgentBase) {"
+        };
 
+            await File.AppendAllLinesAsync("Code.rs", lines);
+
+            
+        }
         public static async Task startAction(string ActionCheck, string FrameNumber)
         {
             if (ActionCheck == "Attack/Set Flag")
@@ -234,23 +272,26 @@ namespace Hitbox_Editor
         {
             MessageBox.Show("Finished");
             FinishScript(Fighter, MoveName);
+            boc.Text = File.ReadAllText("Code.rs");
         }
 
         public static async Task FinishScript(string Fighter, string MoveName)
         {
-                string[] lines =
-                {
+        string scripts = await File.ReadAllTextAsync("scripts.txt");
+            string[] lines =
+            {
             //installer code
             "}"
             ,"#[installer]"
             ,"pub fn install() {"
             , "smashline::install_acmd_scripts!("
-            , Fighter + "_" + MoveName + "_smash_script"
+            , scripts //Fighter + "_" + MoveName + "_smash_script"
             , ");"
             , "}"
             };
             await File.AppendAllLinesAsync("Code.rs", lines);
-        }
 
+        }
     }
 }
+

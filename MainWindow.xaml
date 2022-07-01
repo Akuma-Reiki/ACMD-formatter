@@ -103,7 +103,7 @@
             <ComboBoxItem Content="trail"></ComboBoxItem>
         </ComboBox>
         <Label Content="Fighter" HorizontalAlignment="Left" Margin="10,3,0,0" VerticalAlignment="Top"/>
-        <Button Content="Start" HorizontalAlignment="Left" Margin="318,29,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
+        <Button Content="Load Attack" HorizontalAlignment="Left" Margin="318,29,0,0" VerticalAlignment="Top" Click="Button_Click_1"/>
         <Label HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Content="Action group"/>
         <Label Content="Move" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="162,3,0,0"/>
         <TextBox HorizontalAlignment="Left" Margin="162,31,0,0" Text="{Binding MoveName}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
@@ -197,6 +197,11 @@
         <TextBox HorizontalAlignment="Left" Margin="162,279,0,0" Text="{Binding aShieldDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox HorizontalAlignment="Left" Margin="459,84,0,0" Text="{Binding WorkModule}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label Content="Work Modules" HorizontalAlignment="Left" Margin="463,56,0,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name ="boc" HorizontalAlignment="Left" Margin="960,16,0,0" Text="{Binding codeText}" TextWrapping="Wrap" VerticalAlignment="Top" Height="984" Width="805" Background="#FF6C6C6C" FontFamily="Bahnschrift SemiBold">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
 </Window>
 
