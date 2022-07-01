@@ -1,4 +1,4 @@
-# ult-hitbox-editor
+# ult-hitbox-editor info
 
 All fighter names are their internal names  
 All move names are their internal names  
@@ -26,3 +26,7 @@ to close off the code.
   
 You can either take the Code.rs file and use that in your own mods, or you can put the path to your plugin folder in the bottom right  
 and press compile to have it automtically create an NRO file for you
+
+# important to know  
+if a number has a decimal place, keep it there  
+all true or false items must be kept lowercase  
