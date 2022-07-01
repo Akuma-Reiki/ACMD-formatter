@@ -64,6 +64,7 @@ namespace Hitbox_Editor
         public string aType { get; set; }
         public string WorkModule { get; set; }
         public string pathToCompile { get; set; }
+        public string aArticle { get; set; }
         public MainWindow()
         {
             InitializeComponent();
@@ -105,6 +106,7 @@ namespace Hitbox_Editor
             aSFXLevel = "ATTACK_SOUND_LEVEL_S";
             aSFXType = "COLLISION_SOUND_ATTR_KICK";
             aType = "ATTACK_REGION_KICK";
+            aArticle = "FIGHTER_MARIO_GENERATE_ARTICLE_FIREBALL";
             removeOldMoves();
             removeOldCode();
             boc.Text = File.ReadAllText("Code.rs");
@@ -114,7 +116,7 @@ namespace Hitbox_Editor
             Fighter = fighter_list.Text;
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
-            AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule);
+            AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule, aArticle);
             indexNumber = indexNumber + 1;
             boc.Text = File.ReadAllText("Code.rs");
             
@@ -217,7 +219,7 @@ namespace Hitbox_Editor
             await File.AppendAllLinesAsync("Code.rs", lines);
         }
 
-        public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType, string WorkModule)
+        public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType, string WorkModule, string aArticle)
         {
 
             if (FrameAction == "macros::ATTACK")
@@ -253,6 +255,14 @@ namespace Hitbox_Editor
                 string[] lines =
                 {
                     "WorkModule::off_flag(fighter.module_accessor, *" + WorkModule + ");"
+                };
+                await File.AppendAllLinesAsync("Code.rs", lines);
+            }
+            else if (FrameAction == "ArticleModule::generate_article")
+            {
+                string[] lines =
+                {
+                    "ArticleModule::generate_article(fighter.module_accessor, *" + aArticle + ", false, -1);"
                 };
                 await File.AppendAllLinesAsync("Code.rs", lines);
             }
@@ -296,11 +306,11 @@ namespace Hitbox_Editor
             {
                 WorkingDirectory = @pathToCompile,
                 WindowStyle = System.Diagnostics.ProcessWindowStyle.Normal,
-                FileName = "cmd.exe",
+                FileName = "cargo",
                 RedirectStandardInput = true,
                 UseShellExecute = false
             };
-            startInfo.Arguments = "cargo skyline build --release";
+            startInfo.Arguments = "skyline build --release";
             System.Diagnostics.Process.Start(startInfo);
         }
     }
