@@ -25,8 +25,9 @@ to skip ahead to a certain frame, potentially to disable that flag you turned on
 to close off the code.  
   
   
-You can either take the Code.rs file and use that in your own mods, or you can put the path to your plugin folder in the bottom right  
-and press compile to have it automtically create an NRO file for you
+You can then take the Code.rs file and use that in your own skyline workspace. If you need help with that follow this tutorial:  
+https://docs.google.com/document/d/1y_JX5LNsQ8jUBfrghRkL8VkvfMWUIXSrrscM5qj7s6U/edit  
+or ask around in the smash modding discord.
 
 # important to know  
 if a number has a decimal place, keep it there  
