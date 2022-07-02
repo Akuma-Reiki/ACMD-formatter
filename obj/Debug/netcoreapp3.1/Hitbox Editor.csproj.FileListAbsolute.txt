@@ -18,3 +18,23 @@ C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.csp
 C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.dll
 C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.pdb
 C:\Users\JJ\source\repos\Hitbox Editor\obj\Debug\netcoreapp3.1\Hitbox Editor.genruntimeconfig.cache
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\bin\Debug\netcoreapp3.1\Hitbox Editor.exe
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\bin\Debug\netcoreapp3.1\Hitbox Editor.deps.json
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\bin\Debug\netcoreapp3.1\Hitbox Editor.runtimeconfig.json
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\bin\Debug\netcoreapp3.1\Hitbox Editor.runtimeconfig.dev.json
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\bin\Debug\netcoreapp3.1\Hitbox Editor.dll
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\bin\Debug\netcoreapp3.1\Hitbox Editor.pdb
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor_MarkupCompile.cache
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor_MarkupCompile.lref
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.g.resources
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.AssemblyInfo.cs
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.dll
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.pdb
+C:\Users\admin\Desktop\Evan\ult-hitbox-editor-main\obj\Debug\netcoreapp3.1\Hitbox Editor.genruntimeconfig.cache

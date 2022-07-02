@@ -110,6 +110,9 @@ namespace Hitbox_Editor
             removeOldMoves();
             removeOldCode();
             boc.Text = File.ReadAllText("Code.rs");
+
+          //  ScrollViewer viewer = new ScrollViewer();
+          //  viewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

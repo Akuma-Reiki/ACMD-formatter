@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "O6tBjDLZ63sullvNYsqpND1LTn4JuMJdaTWGvIJ8aR98IX0Vz+ba8BDqS1iGV9EjuMYEIZZNkkge6hr59j+Q3A==",
+  "dgSpecHash": "M7jBrlvvWptyfhsCcowhlDsmlnmGqW/ucIcBERfvcl5AenSm01n68cVCVWHaPhw6bGnC1yX7JTNN6IuNt9duxA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JJ\\source\\repos\\Hitbox Editor\\Hitbox Editor.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\admin\\Desktop\\Evan\\ult-hitbox-editor-main\\Hitbox Editor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.21\\microsoft.netcore.app.host.win-x64.3.1.21.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
