@@ -82,6 +82,7 @@ namespace Hitbox_Editor
             aHitbits = "COLLISION_CATEGORY_MASK_ALL";
             aCollisionPart = "COLLISION_PART_MASK_ALL";
             aArticle = "FIGHTER_MARIO_GENERATE_ARTICLE_FIREBALL";
+            indexNumber = 0;
             removeOldCode();
             removeOldMoves();
             boc.Text = File.ReadAllText("mod.rs");
@@ -103,7 +104,7 @@ namespace Hitbox_Editor
             aFacingRestrict = facingRestrictions.Text;
             aClang_Rebound = clangRebound.Text;
             aSFXType = "COLLISION_SOUND_ATTR_" + sfxType.Text;
-            aType = "ATTACK_REGION" + type.Text;
+            aType = "ATTACK_REGION_" + type.Text;
             AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule, aArticle, Fighter);
             boc.Text = File.ReadAllText("mod.rs");
             
@@ -148,7 +149,6 @@ namespace Hitbox_Editor
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            indexNumber = 0;
             endAction(Fighter);
             
             boc.Text = File.ReadAllText("mod.rs");
@@ -256,7 +256,10 @@ namespace Hitbox_Editor
                 aGround_or_Air = "COLLISION_SITUATION_MASK_A";
             }
 
-            if(aSFXLevel == "Quiet")
+            if(aX2 != "None") { aX2 = "Some(" + aX2 + ")"; }
+            if(aY2 != "None") { aY2 = "Some(" + aY2 + ")"; }
+            if(aZ2 != "None") { aZ2 = "Some(" + aZ2 + ")"; }
+            if (aSFXLevel == "Quiet")
             {
                 aSFXLevel = "ATTACK_SOUND_LEVEL_S";
             }
@@ -271,7 +274,6 @@ namespace Hitbox_Editor
             if (FrameAction == "Add hitbox")
             {
                 FrameAction = "macros::ATTACK";
-                indexNumber = indexNumber + 1;
                 string[] lines =
               {
             FrameAction + "(fighter, " + indexNumber.ToString() + ", " + aPart + ", Hash40::new(\"" + aBone + "\"), " + aDamage + ", " + aAngle + ", " + aKBG + ", " + aFKB + ", " + aBKB + ", " +
@@ -282,6 +284,7 @@ namespace Hitbox_Editor
             };
                 
                 await File.AppendAllLinesAsync("mod.rs", lines);
+                indexNumber = indexNumber + 1;
             }
             else if (FrameAction == "Clear active hitboxes")
             {
@@ -290,6 +293,7 @@ namespace Hitbox_Editor
                 {
                     "AttackModule::clear_all(fighter.module_accessor);"
                 };
+                indexNumber = 0;
                 await File.AppendAllLinesAsync("mod.rs", lines);
             }
             else if (FrameAction == "Turn WorkModule on")
@@ -335,7 +339,7 @@ namespace Hitbox_Editor
         string scripts = await File.ReadAllTextAsync("scripts.txt");
             string[] lines =
             {
-            "}", "pub fn install () {", "smashline::install_acmd_scripts{", scripts, "};","}"
+            "}", "pub fn install () {", "smashline::install_acmd_scripts!{", scripts, "};","}"
             };
             
             await File.AppendAllLinesAsync("mod.rs", lines);
