@@ -1245,11 +1245,11 @@
             <Label Content="Frame start" HorizontalAlignment="Left" Margin="318,56,0,0" VerticalAlignment="Top" Foreground="White"/>
             <ComboBox x:Name="frame_action" HorizontalAlignment="Left" Margin="162,82,0,0" VerticalAlignment="Top" Width="120" SelectedItem="FrameAction">
                 <ComboBoxItem Content=""/>
-                <ComboBoxItem Content="macros::ATTACK"/>
-                <ComboBoxItem Content="AttackModule::clear_all"/>
-                <ComboBoxItem Content="WorkModule::on_flag"/>
-                <ComboBoxItem Content="WorkModule::off_flag"/>
-                <ComboBoxItem Content="ArticleModule::generate_article"/>
+                <ComboBoxItem Content="Add hitbox"/>
+                <ComboBoxItem Content="Clear active hitboxes"/>
+                <ComboBoxItem Content="Turn WorkModule on"/>
+                <ComboBoxItem Content="Turn WorkModule off"/>
+                <ComboBoxItem Content="Generate article"/>
             </ComboBox>
             <ComboBox x:Name ="actionCheck" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Width="120" SelectedItem="ActionCheck">
                 <ComboBoxItem Content="Attack/Set Flag"/>
@@ -1283,12 +1283,12 @@
             <Label Content="Absorable" HorizontalAlignment="Left" Margin="760,422,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Clang Rebound" HorizontalAlignment="Left" Margin="612,531,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Flinchless" HorizontalAlignment="Left" Margin="15,424,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="Facing Restrict" HorizontalAlignment="Left" Margin="762,531,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="Lauch opponent to" HorizontalAlignment="Left" Margin="762,531,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Effect" HorizontalAlignment="Left" Margin="15,530,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="DisableHitlag" HorizontalAlignment="Left" Margin="169,424,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="SFXLevel" HorizontalAlignment="Left" Margin="167,530,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Direct Hitbox" HorizontalAlignment="Left" Margin="169,589,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <Label Content="SFXType" HorizontalAlignment="Left" Margin="319,530,0,0" VerticalAlignment="Top" Foreground="White"/>
+            <Label Content="SFXType" HorizontalAlignment="Left" Margin="319,531,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Ground or Air" HorizontalAlignment="Left" Margin="321,589,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Type" HorizontalAlignment="Left" Margin="462,530,0,0" VerticalAlignment="Top" Foreground="White"/>
             <Label Content="Hitbits" HorizontalAlignment="Left" Margin="464,589,0,0" VerticalAlignment="Top" Foreground="White"/>
@@ -1310,15 +1310,11 @@
             <TextBox HorizontalAlignment="Left" Margin="762,334,0,0" Text="{Binding aZ2}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox HorizontalAlignment="Left" Margin="13,272,0,0" Text="{Binding aHitlag}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox HorizontalAlignment="Left" Margin="165,273,0,0" Text="{Binding aSDI}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox HorizontalAlignment="Left" Margin="612,556,0,0" Text="{Binding aClang_Rebound}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
-            <TextBox HorizontalAlignment="Left" Margin="762,556,0,0" Text="{Binding aFacingRestrict}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
             <TextBox HorizontalAlignment="Left" Margin="321,448,0,0" Text="{Binding aTrip}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox HorizontalAlignment="Left" Margin="462,448,0,0" Text="{Binding aRehit}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox HorizontalAlignment="Left" Margin="462,613,0,0" Text="{Binding aHitbits}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
             <TextBox HorizontalAlignment="Left" Margin="612,613,0,0" Text="{Binding aCollisionPart}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
             <TextBox HorizontalAlignment="Left" Margin="15,556,0,0" Text="{Binding aEffect}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
-            <TextBox HorizontalAlignment="Left" Margin="321,556,0,0" Text="{Binding aSFXType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
-            <TextBox HorizontalAlignment="Left" Margin="462,556,0,0" Text="{Binding aType}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="10"/>
             <Label Content="Shield Damage" HorizontalAlignment="Left" Margin="762,204,0,0" VerticalAlignment="Top" Foreground="White"/>
             <TextBox HorizontalAlignment="Left" Margin="762,230,0,0" Text="{Binding aShieldDamage}" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBox HorizontalAlignment="Left" Margin="459,84,0,0" Text="{Binding WorkModule}" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" FontSize="12"/>
@@ -1369,8 +1365,174 @@
             </ComboBox>
             <ComboBox x:Name="sfxLevel" HorizontalAlignment="Left" Margin="165,553,0,0" VerticalAlignment="Top" Width="120">
                 <ComboBoxItem Content="Quiet"/>
-                <ComboBoxItem Content="Medium"/>
-                <ComboBoxItem Content="Loud" IsSelected="True"/>
+                <ComboBoxItem Content="Medium" IsSelected="True"/>
+                <ComboBoxItem Content="Loud"/>
+            </ComboBox>
+            <ComboBox x:Name="sfxType" HorizontalAlignment="Left" Margin="321,553,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem Content="BAT"/>
+                <ComboBoxItem Content="BAYONETTA_HIT01"/>
+                <ComboBoxItem Content="BAYONETTA_HIT02"/>
+                <ComboBoxItem Content="BOMB"/>
+                <ComboBoxItem Content="BRAVE_CRITICALHIT"/>
+                <ComboBoxItem Content="BUDDY_WING"/>
+                <ComboBoxItem Content="CHROM_HIT"/>
+                <ComboBoxItem Content="CLOUD_FINAL_01"/>
+                <ComboBoxItem Content="CLOUD_FINAL_02"/>
+                <ComboBoxItem Content="CLOUD_FINAL_03"/>
+                <ComboBoxItem Content="CLOUD_HIT"/>
+                <ComboBoxItem Content="CLOUD_SMASH_01"/>
+                <ComboBoxItem Content="CLOUD_SMASH_02"/>
+                <ComboBoxItem Content="CLOUD_SMASH_03"/>
+                <ComboBoxItem Content="COIN"/>
+                <ComboBoxItem Content="CUTUP"/>
+                <ComboBoxItem Content="DAISY_FRYINGPAN"/>
+                <ComboBoxItem Content="DAISY_GOLF"/>
+                <ComboBoxItem Content="DAISY_PARASOL"/>
+                <ComboBoxItem Content="DAISY_PINTA"/>
+                <ComboBoxItem Content="DAISY_TENNIS"/>
+                <ComboBoxItem Content="DEDEDE"/>
+                <ComboBoxItem Content="DIDDY_SCRATCH"/>
+                <ComboBoxItem Content="DOLLY_CRITICAL"/>
+                <ComboBoxItem Content="DOLLY_KICK"/>
+                <ComboBoxItem Content="DOLLY_PUNCH"/>
+                <ComboBoxItem Content="DOLLY_SUPERSPECIAL01"/>
+                <ComboBoxItem Content="DUCKHUNT_FINAL"/>
+                <ComboBoxItem Content="ELEC"/>
+                <ComboBoxItem Content="FALCO_BLASTER"/>
+                <ComboBoxItem Content="FAMICOM_HIT"/>
+                <ComboBoxItem Content="FIRE"/>
+                <ComboBoxItem Content="FOX_BLASTER"/>
+                <ComboBoxItem Content="FOX_TAIL"/>
+                <ComboBoxItem Content="FREEZE"/>
+                <ComboBoxItem Content="GRASS"/>
+                <ComboBoxItem Content="GURUGURU_HIT"/>
+                <ComboBoxItem Content="HARISEN"/>
+                <ComboBoxItem Content="HEAVY"/>
+                <ComboBoxItem Content="IKE"/>
+                <ComboBoxItem Content="INKLING_HIT"/>
+                <ComboBoxItem Content="ITEM_HAMMER"/>
+                <ComboBoxItem Content="JACK_SHOT"/>
+                <ComboBoxItem Content="KAMEHIT"/>
+                <ComboBoxItem Content="KEN_FINAL01"/>
+                <ComboBoxItem Content="KEN_FINAL02"/>
+                <ComboBoxItem Content="KEN_FINAL03"/>
+                <ComboBoxItem Content="KEN_KICK"/>
+                <ComboBoxItem Content="KEN_PUNCH"/>
+                <ComboBoxItem Content="KEN_SHORYU"/>
+                <ComboBoxItem Content="KICK"  IsSelected = "True"/>
+                <ComboBoxItem Content="LIZARDON_FIRE"/>
+                <ComboBoxItem Content="LUCARIO"/>
+                <ComboBoxItem Content="LUCAS_BAT"/>
+                <ComboBoxItem Content="LUIGI_ATTACKDASH"/>
+                <ComboBoxItem Content="LUIGI_COIN"/>
+                <ComboBoxItem Content="LUIGI_SMASH"/>
+                <ComboBoxItem Content="MAGIC"/>
+                <ComboBoxItem Content="MARIOD_CAPSULE"/>
+                <ComboBoxItem Content="MARIOD_COIN_LAST"/>
+                <ComboBoxItem Content="MARIOD_MANT"/>
+                <ComboBoxItem Content="MARIO_COIN"/>
+                <ComboBoxItem Content="MARIO_COIN_LAST"/>
+                <ComboBoxItem Content="MARIO_FINAL"/>
+                <ComboBoxItem Content="MARIO_FIREBALL"/>
+                <ComboBoxItem Content="MARIO_LOCAL_COIN"/>
+                <ComboBoxItem Content="MARIO_LOCAL_COIN_LAST"/>
+                <ComboBoxItem Content="MARIO_MANT"/>
+                <ComboBoxItem Content="MARIO_WATER_PUMP"/>
+                <ComboBoxItem Content="MARTH_FINAL"/>
+                <ComboBoxItem Content="MARTH_SWORD"/>
+                <ComboBoxItem Content="MASTER_ARROW_MAX"/>
+                <ComboBoxItem Content="MASTER_ATTACK100END"/>
+                <ComboBoxItem Content="MASTER_AXE"/>
+                <ComboBoxItem Content="METAKNIGHT_FINAL_HIT"/>
+                <ComboBoxItem Content="MIIENEMYG_BLASTER"/>
+                <ComboBoxItem Content="MIIGUNNER_BLASTER"/>
+                <ComboBoxItem Content="NESS_BAT"/>
+                <ComboBoxItem Content="NONE"/>
+                <ComboBoxItem Content="PACMAN_BELL"/>
+                <ComboBoxItem Content="PACMAN_WATER"/>
+                <ComboBoxItem Content="PEACHWEAPON"/>
+                <ComboBoxItem Content="PEACH_BINTA"/>
+                <ComboBoxItem Content="PEACH_FRYINGPAN"/>
+                <ComboBoxItem Content="PEACH_GOLF"/>
+                <ComboBoxItem Content="PEACH_PARASOL"/>
+                <ComboBoxItem Content="PEACH_TENNIS"/>
+                <ComboBoxItem Content="PUNCH"/>
+                <ComboBoxItem Content="REFLET_FINAL_ELEC"/>
+                <ComboBoxItem Content="REFLET_FINAL_FIRE"/>
+                <ComboBoxItem Content="REFLET_FINAL_SWORD"/>
+                <ComboBoxItem Content="RICHTER_CROSS"/>
+                <ComboBoxItem Content="RICHTER_WHIP"/>
+                <ComboBoxItem Content="ROBOT_FINAL_HIT"/>
+                <ComboBoxItem Content="ROY_HIT"/>
+                <ComboBoxItem Content="RYU_FINAL01"/>
+                <ComboBoxItem Content="RYU_FINAL02"/>
+                <ComboBoxItem Content="RYU_FINAL03"/>
+                <ComboBoxItem Content="RYU_KICK"/>
+                <ComboBoxItem Content="RYU_PUNCH"/>
+                <ComboBoxItem Content="SAMUSD_SCREW"/>
+                <ComboBoxItem Content="SAMUSD_SCREW_FINISH"/>
+                <ComboBoxItem Content="SAMUS_SCREW"/>
+                <ComboBoxItem Content="SAMUS_SCREW_FINISH"/>
+                <ComboBoxItem Content="SHEIK_FINAL_KICK"/>
+                <ComboBoxItem Content="SHEIK_FINAL_PUNCH"/>
+                <ComboBoxItem Content="SHIZUE_HAMMER"/>
+                <ComboBoxItem Content="SHULK_FINAL_DUNBAN"/>
+                <ComboBoxItem Content="SHULK_FINAL_RIKI"/>
+                <ComboBoxItem Content="SIMON_CROSS"/>
+                <ComboBoxItem Content="SIMON_WHIP"/>
+                <ComboBoxItem Content="SLAP"/>
+                <ComboBoxItem Content="SNAKE"/>
+                <ComboBoxItem Content="TANTAN_FINAL"/>
+                <ComboBoxItem Content="TANTAN_PUNCH01"/>
+                <ComboBoxItem Content="TANTAN_PUNCH02"/>
+                <ComboBoxItem Content="TANTAN_PUNCH03"/>
+                <ComboBoxItem Content="TERM"/>
+                <ComboBoxItem Content="TOONLINK_HIT"/>
+                <ComboBoxItem Content="TRAIN_HIT"/>
+                <ComboBoxItem Content="WATER"/>
+                <ComboBoxItem Content="YOSHI_BITE_HIT"/>
+                <ComboBoxItem Content="YOSHI_EGG_HIT"/>
+                <ComboBoxItem Content="ZENIGAME_SHELLHIT"/>
+            </ComboBox>
+            <ComboBox x:Name= "type" HorizontalAlignment="Left" Margin="464,553,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem Content="BAT"/>
+                <ComboBoxItem Content="HIP"/>
+                <ComboBoxItem Content="PSI"/>
+                <ComboBoxItem Content="AURA"/>
+                <ComboBoxItem Content="BITE"/>
+                <ComboBoxItem Content="BODY"/>
+                <ComboBoxItem Content="BOMB"/>
+                <ComboBoxItem Content="HEAD"/>
+                <ComboBoxItem Content="KICK" IsSelected="True"/>
+                <ComboBoxItem Content="KNEE"/>
+                <ComboBoxItem Content="NONE"/>
+                <ComboBoxItem Content="SPIN"/>
+                <ComboBoxItem Content="TAIL"/>
+                <ComboBoxItem Content="TERM"/>
+                <ComboBoxItem Content="WHIP"/>
+                <ComboBoxItem Content="ELBOW"/>
+                <ComboBoxItem Content="MAGIC"/>
+                <ComboBoxItem Content="PUNCH"/>
+                <ComboBoxItem Content="SWORD"/>
+                <ComboBoxItem Content="THROW"/>
+                <ComboBoxItem Content="WATER"/>
+                <ComboBoxItem Content="ENERGY"/>
+                <ComboBoxItem Content="HAMMER"/>
+                <ComboBoxItem Content="OBJECT"/>
+                <ComboBoxItem Content="PIKMIN"/>
+                <ComboBoxItem Content="PARASOL"/>
+                <ComboBoxItem Content="PALUTENA"/>
+            </ComboBox>
+            <ComboBox x:Name="clangRebound" HorizontalAlignment="Left" Margin="612,553,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem Content="Can clang" IsSelected="True"/>
+                <ComboBoxItem Content="Can clang, no bouce"/>
+                <ComboBoxItem Content="No stop"/>
+                <ComboBoxItem Content="Can't clang"/>
+            </ComboBox>
+            <ComboBox x:Name="facingRestrictions" HorizontalAlignment="Left" Margin="760,553,0,0" VerticalAlignment="Top" Width="120">
+                <ComboBoxItem Content="The front" IsSelected="True"/>
+                <ComboBoxItem Content="The back"/>
+                <ComboBoxItem Content="The side they're on"/>
             </ComboBox>
         </Grid>
     </ScrollViewer>

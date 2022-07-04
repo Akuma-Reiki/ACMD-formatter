@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.IO;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.IO;
-using System.Windows.Shapes;
 
 namespace Hitbox_Editor
 {
@@ -87,31 +75,16 @@ namespace Hitbox_Editor
             aZ2 = "None";
             aHitlag = "1.0";
             aSDI = "1.0";
-            aClang_Rebound = "ATTACK_SETOFF_KIND_ON";
-            aFacingRestrict = "ATTACK_LR_CHECK_POS";
-            aSetWeight = "false";
             aShieldDamage = "0";
+            aEffect = "collision_attr_normal";
             aTrip = "0.0";
             aRehit = "0";
-            aReflectable = "false";
-            aAbsorable = "false";
-            aFlinchless = "false";
-            aDisableHitLag = "false";
-            aDirect_Hitbox = "true";
-            aGround_or_Air = "COLLISION_SITUATION_MASK_GA";
             aHitbits = "COLLISION_CATEGORY_MASK_ALL";
             aCollisionPart = "COLLISION_PART_MASK_ALL";
-            aFriendlyFire = "false";
-            aEffect = "collision_attr_rush";
-            aSFXType = "COLLISION_SOUND_ATTR_KICK";
-            aType = "ATTACK_REGION_KICK";
             aArticle = "FIGHTER_MARIO_GENERATE_ARTICLE_FIREBALL";
             removeOldCode();
             removeOldMoves();
-            boc.Text = File.ReadAllText("Code.rs");
-
-          //  ScrollViewer viewer = new ScrollViewer();
-          //  viewer.VerticalScrollBarVisibility = ScrollBarVisibility.Auto;
+            boc.Text = File.ReadAllText("mod.rs");
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -127,8 +100,12 @@ namespace Hitbox_Editor
             aSetWeight = setWeight.Text;
             aDirect_Hitbox = directHitbox.Text;
             aSFXLevel = sfxLevel.Text;
-            AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule, aArticle);
-            boc.Text = File.ReadAllText("Code.rs");
+            aFacingRestrict = facingRestrictions.Text;
+            aClang_Rebound = clangRebound.Text;
+            aSFXType = "COLLISION_SOUND_ATTR_" + sfxType.Text;
+            aType = "ATTACK_REGION" + type.Text;
+            AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule, aArticle, Fighter);
+            boc.Text = File.ReadAllText("mod.rs");
             
         }
         public static async Task removeOldMoves()
@@ -159,19 +136,22 @@ namespace Hitbox_Editor
             FrameAction = frame_action.Text;
             StartCode(MoveName, Fighter);
             addCurrentMove(MoveName, Fighter);
-            boc.Text = File.ReadAllText("Code.rs");
+            
+            boc.Text = File.ReadAllText("mod.rs");
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             ActionCheck = actionCheck.Text;
-            startAction(ActionCheck, FrameNumber);
-            boc.Text = File.ReadAllText("Code.rs");
+            startAction(ActionCheck, FrameNumber, Fighter);
+            
+            boc.Text = File.ReadAllText("mod.rs");
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
             indexNumber = 0;
-            endAction();
-            boc.Text = File.ReadAllText("Code.rs");
+            endAction(Fighter);
+            
+            boc.Text = File.ReadAllText("mod.rs");
         }
         public static async Task removeOldCode()
         {
@@ -180,8 +160,8 @@ namespace Hitbox_Editor
         {
             "use smash::app::lua_bind::*;", "use smash::app::sv_animcmd;", "use smash::lua2cpp::L2CAgentBase;", "use smash::phx::Hash40;", "use smash::lib::lua_const::*;", "use smashline::*;", "use smash_script::*;", ""
         };
-
-            await File.WriteAllLinesAsync("Code.rs", lines);
+            
+            await File.WriteAllLinesAsync("mod.rs", lines);
         }
         public static async Task StartCode(string MoveName, string Fighter)
         {
@@ -192,12 +172,12 @@ namespace Hitbox_Editor
             "#[acmd_script( agent = \"" + Fighter + "\", script = \"game_" + MoveName.ToLower() + "\", category = ACMD_GAME )]" , ""
             ,"unsafe fn " + Fighter +"_" + MoveName.ToLower() + "_smash_script(fighter: &mut L2CAgentBase) {"
         };
-
-            await File.AppendAllLinesAsync("Code.rs", lines);
+            
+            await File.AppendAllLinesAsync("mod.rs", lines);
 
             
         }
-        public static async Task startAction(string ActionCheck, string FrameNumber)
+        public static async Task startAction(string ActionCheck, string FrameNumber, string Fighter)
         {
             if (ActionCheck == "Attack/Set Flag")
             {
@@ -206,7 +186,8 @@ namespace Hitbox_Editor
             "sv_animcmd::frame(fighter.lua_state_agent, " + FrameNumber + ".0);"
             , "if macros::is_excute(fighter) {"
             };
-            await File.AppendAllLinesAsync("Code.rs", lines);
+                
+                await File.AppendAllLinesAsync("mod.rs", lines);
             }
             if (ActionCheck == "Wait")
             {
@@ -214,22 +195,54 @@ namespace Hitbox_Editor
                 {
                 "sv_animcmd::frame(fighter.lua_state_agent, " + FrameNumber + ".0);" 
                 };
-            await File.AppendAllLinesAsync("Code.rs", lines);
+            await File.AppendAllLinesAsync("mod.rs", lines);
             }
         }
 
-        public static async Task endAction()
+        public static async Task endAction(string Fighter)
         {
             string[] lines =
             {
             ""
             ,"}"
             };
-            await File.AppendAllLinesAsync("Code.rs", lines);
+            
+            await File.AppendAllLinesAsync("mod.rs", lines);
         }
 
-        public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType, string WorkModule, string aArticle)
+        public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType, string WorkModule, string aArticle, string Fighter)
         {
+            if (aFacingRestrict == "The front")
+            {
+                aFacingRestrict = "ATTACK_LR_CHECK_F";
+            }
+            else if (aFacingRestrict == "The back")
+            {
+                aFacingRestrict = "ATTACK_LR_CHECK_B";
+            }
+            if (aFacingRestrict == "The side they're on")
+            {
+                aFacingRestrict = "ATTACK_LR_CHECK_POS";
+            }
+
+            if (aClang_Rebound == "Can clang")
+            {
+                aClang_Rebound = "ATTACK_SETOFF_KIND_ON";
+            }
+            else if (aClang_Rebound == "Can't clang")
+            {
+                aClang_Rebound = "ATTACK_SETOFF_KIND_OFF";
+            }
+            else if (aClang_Rebound == "Can clang, no bounce")
+            {
+                aClang_Rebound = "ATTACK_SETOFF_KIND_THRU";
+            }
+            else if (aClang_Rebound == "No stop")
+            {
+                aClang_Rebound = "ATTACK_SETOFF_KIND_NO_STOP";
+            }
+
+
             if (aGround_or_Air == "Both")
             {
                 aGround_or_Air = "COLLISION_SITUATION_MASK_GA";
@@ -255,8 +268,9 @@ namespace Hitbox_Editor
             {
                 aSFXLevel = "ATTACK_SOUND_LEVEL_L";
             }
-            if (FrameAction == "macros::ATTACK")
+            if (FrameAction == "Add hitbox")
             {
+                FrameAction = "macros::ATTACK";
                 indexNumber = indexNumber + 1;
                 string[] lines =
               {
@@ -266,53 +280,54 @@ namespace Hitbox_Editor
             aHitbits + ", *" + aCollisionPart + ", " + aFriendlyFire + ", " + "Hash40::new(\"" + aEffect + "\"), *" + aSFXLevel + ", *" + aSFXType + ", *" + aType + ");"
 
             };
-                await File.AppendAllLinesAsync("Code.rs", lines);
+                
+                await File.AppendAllLinesAsync("mod.rs", lines);
             }
-            else if (FrameAction == "AttackModule::clear_all")
+            else if (FrameAction == "Clear active hitboxes")
             {
+                FrameAction = "AttackModule::clear_all";
                 string[] lines =
                 {
                     "AttackModule::clear_all(fighter.module_accessor);"
                 };
-                await File.AppendAllLinesAsync("Code.rs", lines);
+                await File.AppendAllLinesAsync("mod.rs", lines);
             }
-            else if (FrameAction == "WorkModule::on_flag")
+            else if (FrameAction == "Turn WorkModule on")
             {
+                FrameAction = "WorkModule::on_flag";
                 string[] lines =
                  {
                     "WorkModule::on_flag(fighter.module_accessor, *" + WorkModule + ");"
                  };
-                await File.AppendAllLinesAsync("Code.rs", lines);
+                
+                await File.AppendAllLinesAsync("mod.rs", lines);
             }
-            else if (FrameAction == "WorkModule::off_flag") 
+            else if (FrameAction == "Turn WorkModule off") 
             {
+                FrameAction = "WorkModule::off_flag";
                 string[] lines =
                 {
                     "WorkModule::off_flag(fighter.module_accessor, *" + WorkModule + ");"
                 };
-                await File.AppendAllLinesAsync("Code.rs", lines);
+                
+                await File.AppendAllLinesAsync("mod.rs", lines);
             }
-            else if (FrameAction == "ArticleModule::generate_article")
+            else if (FrameAction == "Generate article")
             {
+                FrameAction = "ArticleModule::generate_article";
                 string[] lines =
                 {
                     "ArticleModule::generate_article(fighter.module_accessor, *" + aArticle + ", false, -1);"
                 };
-                await File.AppendAllLinesAsync("Code.rs", lines);
-            }
-        }
-        public static async Task AddWait(string FrameNumber)
-        {
-            string[] lines =
-            {
                 
-            };
-            await File.AppendAllLinesAsync("Code.rs", lines);
+                await File.AppendAllLinesAsync("mod.rs", lines);
+            }
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             FinishScript(Fighter, MoveName);
-            boc.Text = File.ReadAllText("Code.rs");
+            
+            boc.Text = File.ReadAllText("mod.rs");
         }
 
         public static async Task FinishScript(string Fighter, string MoveName)
@@ -322,7 +337,8 @@ namespace Hitbox_Editor
             {
             "}", "pub fn install () {", "smashline::install_acmd_scripts{", scripts, "};","}"
             };
-            await File.AppendAllLinesAsync("Code.rs", lines);
+            
+            await File.AppendAllLinesAsync("mod.rs", lines);
 
         }
 
