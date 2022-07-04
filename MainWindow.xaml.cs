@@ -106,6 +106,8 @@ namespace Hitbox_Editor
             aSFXType = "COLLISION_SOUND_ATTR_KICK";
             aType = "ATTACK_REGION_KICK";
             aArticle = "FIGHTER_MARIO_GENERATE_ARTICLE_FIREBALL";
+            removeOldCode();
+            removeOldMoves();
             boc.Text = File.ReadAllText("Code.rs");
 
           //  ScrollViewer viewer = new ScrollViewer();
@@ -129,6 +131,26 @@ namespace Hitbox_Editor
             boc.Text = File.ReadAllText("Code.rs");
             
         }
+        public static async Task removeOldMoves()
+        {
+
+            string[] lines =
+        {
+            ""
+        };
+
+            await File.WriteAllLinesAsync("scripts.txt", lines);
+        }
+        public static async Task addCurrentMove(string MoveName, string Fighter)
+        {
+
+            string[] lines =
+        {
+            Fighter + "_" + MoveName.ToLower() + "_smash_script"
+        };
+
+            await File.AppendAllLinesAsync("scripts.txt", lines);
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -136,6 +158,7 @@ namespace Hitbox_Editor
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
             StartCode(MoveName, Fighter);
+            addCurrentMove(MoveName, Fighter);
             boc.Text = File.ReadAllText("Code.rs");
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
@@ -297,7 +320,7 @@ namespace Hitbox_Editor
         string scripts = await File.ReadAllTextAsync("scripts.txt");
             string[] lines =
             {
-            "}"
+            "}", "pub fn install () {", "smashline::install_acmd_scripts{", scripts, "};","}"
             };
             await File.AppendAllLinesAsync("Code.rs", lines);
 
