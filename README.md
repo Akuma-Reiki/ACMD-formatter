@@ -3,32 +3,24 @@
 All fighter names are their internal names  
 All move names are their internal names  
   
-To find out the internal names, either look at the smash ultimate data viewer https://rubendal.github.io/ssbu/#/Character  
-or ask around in the discord
+# Usage
 
-# usage
-
-First, you must select your fighter, and your move that you will be editing  
-after that, hit 'Load attack' and you should see code pop up on the right side  
+THIS GUIDE ASSUMES YOU HAVE READ AND FOLLOWED THIS GUIDE: https://docs.google.com/document/d/1y_JX5LNsQ8jUBfrghRkL8VkvfMWUIXSrrscM5qj7s6U/edit
+THIS TOOL IS ALSO ONLY MEANT TO SPEED UP THE CODE WRITING PROCESS, IT IS NOT PERFECT, IT CANNOT DO EVERYTHING  
+  
+What this tool does, is generate code for you based on what you put into it, it still requires a little bit of coding knowledge, albeit not much  
+  
+To use it, you must first make sure you have a .NET 3.1 framework installed, on top of everything else in the guide linked above. Once you are in the app, you will see the code you are writing on the right side, with some code already in it.
+To edit a move, you must first pick a character or article from the drop down list, then input the name for the animation you want to apply the hitbox to, and press the Load Attack button. You will see code fill up on the right very frequently this is ok.  
+  
+There are two "action groups" they're split like this due to how the code works, typically you don't want to use wait outside of pre-existing frame groups, but if you know what you're doing, its up to you.
+They use the Frame Start box for you to say how long to wait. The actual action group you want to look at, is attack / set flag. Choose that action group, and then the action you want it to do for you, and the frame you want it to happen on.
+You can then press Start Frame Group, and start editing the hitbox(es) you want to add or clear to that frame, as well as turning on and off workmodules, and generating articles. Once you are done with the action you want to add, you press Add Current Action, and repeat.
+To add waits, you need to select them at the top under the action groups, choose the frames you want it to wait under frame start. Finally, pressing start frame group" again to add that wait. (You do not need to press end frame group for the waits you add, only the attacks / set flags action groups you make)
+After you are done adding everything for that frame press end frame group. You can either make a new frame group (must be a higher frame than last one) where you can clear the hold hitboxes so the're not still active or leave them active and add on top of them.
+Or you can press finish, and take the mod.rs in the app's folder and use it in your own skyline projects. If you don't know how to use it, please reread the guide linked at the start of this tutorial  
   
   
-After that, it's on to the actual frame groups. To start, select the action group Attack/Set Flag, and the frame you want to start it on.  
-If it's an aerial attack set the action to be WorkModule::on, and then press Start Frame Group and Add Current Action in that order  
-(using the default work module option).  
-After that, you can set the action to be macros::ATTACK, and put in the numbers for the first hitbox. When you're done putting them in  
-press Add Current Action. Repeat that process for as many hitboxes as you want your character to have on that frame.  
-You can also use ArticleModule::generate_article to spawn items / projectiles / whatever  
-  
-You can use the action group Wait and Frame start to make it wait a certain amount of frames before doing something else, or AttackModule::clear  
-to clear all hitboxes currently active. Once you're done with the current frame group, press End Frame Group. You can make another  
-to skip ahead to a certain frame, potentially to disable that flag you turned on from earlier with WorkModule::off, or you can press Finish  
-to close off the code.  
-  
-  
-You can then take the Code.rs file and use that in your own skyline workspace. If you need help with that follow this tutorial:  
-https://docs.google.com/document/d/1y_JX5LNsQ8jUBfrghRkL8VkvfMWUIXSrrscM5qj7s6U/edit  
-or ask around in the smash modding discord.
-
 # important to know  
-if a number has a decimal place, keep it there  
-all true or false items must be kept lowercase  
+if a number has a decimal place, keep it there
+If you don't know what changing it will do, probably best to leave it alone
