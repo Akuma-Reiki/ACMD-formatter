@@ -103,12 +103,9 @@ namespace Hitbox_Editor
             aCollisionPart = "COLLISION_PART_MASK_ALL";
             aFriendlyFire = "false";
             aEffect = "collision_attr_rush";
-            aSFXLevel = "ATTACK_SOUND_LEVEL_S";
             aSFXType = "COLLISION_SOUND_ATTR_KICK";
             aType = "ATTACK_REGION_KICK";
             aArticle = "FIGHTER_MARIO_GENERATE_ARTICLE_FIREBALL";
-            removeOldMoves();
-            removeOldCode();
             boc.Text = File.ReadAllText("Code.rs");
 
           //  ScrollViewer viewer = new ScrollViewer();
@@ -119,8 +116,16 @@ namespace Hitbox_Editor
             Fighter = fighter_list.Text;
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
+            aGround_or_Air = ground_or_air.Text;
+            aFlinchless = flinchless.Text;
+            aDisableHitLag = disableHitlag.Text;
+            aReflectable = reflectable.Text;
+            aAbsorable = absorable.Text;
+            aFriendlyFire = friendlyFire.Text;
+            aSetWeight = setWeight.Text;
+            aDirect_Hitbox = directHitbox.Text;
+            aSFXLevel = sfxLevel.Text;
             AddLine(FrameAction, indexNumber,  aPart,  aBone,  aDamage,  aAngle,  aKBG,  aFKB,  aBKB,  aSize,  aX,  aY,  aZ,  aX2,  aY2,  aZ2,  aHitlag,  aSDI,  aClang_Rebound,  aFacingRestrict,  aSetWeight,  aShieldDamage,  aTrip,  aRehit,  aReflectable,  aAbsorable,  aFlinchless,  aDisableHitLag,  aDirect_Hitbox,  aGround_or_Air,  aHitbits,  aCollisionPart,  aFriendlyFire,  aEffect,  aSFXLevel,  aSFXType,  aType, WorkModule, aArticle);
-            indexNumber = indexNumber + 1;
             boc.Text = File.ReadAllText("Code.rs");
             
         }
@@ -130,7 +135,6 @@ namespace Hitbox_Editor
             Fighter = fighter_list.Text;
             ActionCheck = actionCheck.Text;
             FrameAction = frame_action.Text;
-            writeCurrentMove(MoveName, Fighter);
             StartCode(MoveName, Fighter);
             boc.Text = File.ReadAllText("Code.rs");
         }
@@ -145,27 +149,6 @@ namespace Hitbox_Editor
             indexNumber = 0;
             endAction();
             boc.Text = File.ReadAllText("Code.rs");
-        }
-
-        public static async Task writeCurrentMove(string MoveName, string Fighter)
-        {
-
-            string[] lines =
-        {
-            Fighter + "_" + MoveName + "_smash_script"
-        };
-
-            await File.AppendAllLinesAsync("scripts.txt", lines);
-        }
-        public static async Task removeOldMoves()
-        {
-
-            string[] lines =
-        {
-            ""
-        };
-
-            await File.WriteAllLinesAsync("scripts.txt", lines);
         }
         public static async Task removeOldCode()
         {
@@ -183,8 +166,8 @@ namespace Hitbox_Editor
                 string[] lines =
             {
              // character and move selection
-            "#[acmd_script( agent = \"" + Fighter + "\", script = \"game_" + MoveName + "\", category = ACMD_GAME )]" , ""
-            ,"unsafe fn " + Fighter +"_" + MoveName + "_smash_script(fighter: &mut L2CAgentBase) {"
+            "#[acmd_script( agent = \"" + Fighter + "\", script = \"game_" + MoveName.ToLower() + "\", category = ACMD_GAME )]" , ""
+            ,"unsafe fn " + Fighter +"_" + MoveName.ToLower() + "_smash_script(fighter: &mut L2CAgentBase) {"
         };
 
             await File.AppendAllLinesAsync("Code.rs", lines);
@@ -224,9 +207,34 @@ namespace Hitbox_Editor
 
         public static async Task AddLine(string FrameAction, int indexNumber, string aPart, string aBone, string aDamage, string aAngle, string aKBG, string aFKB, string aBKB, string aSize, string aX, string aY, string aZ, string aX2, string aY2, string aZ2, string aHitlag, string aSDI, string aClang_Rebound, string aFacingRestrict, string aSetWeight, string aShieldDamage, string aTrip, string aRehit, string aReflectable, string aAbsorable, string aFlinchless, string aDisableHitLag, string aDirect_Hitbox, string aGround_or_Air, string aHitbits, string aCollisionPart, string aFriendlyFire, string aEffect, string aSFXLevel, string aSFXType, string aType, string WorkModule, string aArticle)
         {
+            if (aGround_or_Air == "Both")
+            {
+                aGround_or_Air = "COLLISION_SITUATION_MASK_GA";
+            }
+            else if (aGround_or_Air == "Ground")
+            {
+                aGround_or_Air = "COLLISION_SITUATION_MASK_G";
+            }
+            else if (aGround_or_Air == "Air")
+            {
+                aGround_or_Air = "COLLISION_SITUATION_MASK_A";
+            }
 
+            if(aSFXLevel == "Quiet")
+            {
+                aSFXLevel = "ATTACK_SOUND_LEVEL_S";
+            }
+            else if (aSFXLevel == "Medium")
+            {
+                aSFXLevel = "ATTACK_SOUND_LEVEL_M";
+            }
+            else if (aSFXLevel == "Loud")
+            {
+                aSFXLevel = "ATTACK_SOUND_LEVEL_L";
+            }
             if (FrameAction == "macros::ATTACK")
             {
+                indexNumber = indexNumber + 1;
                 string[] lines =
               {
             FrameAction + "(fighter, " + indexNumber.ToString() + ", " + aPart + ", Hash40::new(\"" + aBone + "\"), " + aDamage + ", " + aAngle + ", " + aKBG + ", " + aFKB + ", " + aBKB + ", " +
@@ -289,14 +297,7 @@ namespace Hitbox_Editor
         string scripts = await File.ReadAllTextAsync("scripts.txt");
             string[] lines =
             {
-            //installer code
             "}"
-            ,"#[installer]"
-            ,"pub fn install() {"
-            , "smashline::install_acmd_scripts!("
-            , scripts //Fighter + "_" + MoveName + "_smash_script"
-            , ");"
-            , "}"
             };
             await File.AppendAllLinesAsync("Code.rs", lines);
 
